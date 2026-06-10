@@ -7,17 +7,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("Datos de la cuenta") {
-                    TextField("Total de la cuenta", value: $viewModel.tipData.total, format: .currency(code: "USD"))
+                Section("Bill details") {
+                    TextField("Total of the bill", value: $viewModel.tipData.total, format: .currency(code: "USD"))
                         .keyboardType(.decimalPad)
                         .focused($totalIsFocused)
                     
-                    Picker("Porcentaje de propina", selection: $viewModel.tipData.tipPercentage) {
+                    Picker("Tip percentage", selection: $viewModel.tipData.tipPercentage) {
                         Text("10%").tag(10)
                         Text("15%").tag(15)
                         Text("18%").tag(18)
                         Text("20%").tag(20)
-                        Text("Otro").tag(-1)
+                        Text("Other").tag(-1)
                     }
                     .pickerStyle(.segmented)
                     .onChange(of: viewModel.tipData.tipPercentage) { oldValue, newValue in
@@ -30,7 +30,7 @@ struct ContentView: View {
                     
                     if viewModel.tipData.tipPercentage == -1 {
                         HStack {
-                            Text("Porcentaje:")
+                            Text("Percentage:")
                             TextField("0", value: $viewModel.tipData.percentageCustom, format: .number)
                                 .keyboardType(.numberPad)
                                 .textFieldStyle(.roundedBorder)
@@ -44,33 +44,33 @@ struct ContentView: View {
                         .padding(.top, 8)
                     }
                     
-                    Stepper("Personas: \(viewModel.tipData.numberOfPeople)", value: $viewModel.tipData.numberOfPeople, in: 1...20)
+                    Stepper("Number of people: \(viewModel.tipData.numberOfPeople)", value: $viewModel.tipData.numberOfPeople, in: 1...20)
                 }
                 
-                Section("Resultados") {
+                Section("Results") {
                     HStack {
-                        Text("Propina:")
+                        Text("Tip:")
                         Spacer()
                         Text(viewModel.tipData.tipAmount, format: .currency(code: "USD"))
                             .foregroundColor(.green)
                     }
                     
                     HStack {
-                        Text("Total con propina:")
+                        Text("Total with tip:")
                         Spacer()
                         Text(viewModel.tipData.totalIncludingTip, format: .currency(code: "USD"))
                             .bold()
                     }
                     
                     HStack {
-                        Text("Por persona:")
+                        Text("Split Bill:")
                         Spacer()
                         Text(viewModel.tipData.tipPerPerson, format: .currency(code: "USD"))
                             .foregroundColor(.blue)
                     }
                 }
             }
-            .navigationTitle("Calculadora de Propina")
+            .navigationTitle("Tip Calculator")
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()

@@ -34,7 +34,7 @@ class TipManager: ObservableObject {
     func activeCustomMode() {
         tipData.usePercentageCustom = true
         if tipData.percentageCustom == 0 {
-            tipData.percentageCustom = tipData.tipPercentage
+            tipData.percentageCustom = 5
         }
     }
     
