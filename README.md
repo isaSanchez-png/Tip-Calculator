@@ -1,4 +1,4 @@
-### Tip Calculator
+# Tip Calculator
 An intuitive tool to easily split bills and calculate precise tip percentages.
 * **Key Features:** Dynamic bill text input, custom tip percentage selection, and multi-person split management.
 * **Technologies & Concepts:** Form layouts, state management, text field formatting, and basic arithmetic logic closures in Swift.
@@ -18,7 +18,7 @@ To run these projects locally:
 
 ---
 
-### Calculadora de Propinas
+# Calculadora de Propinas
 Una herramienta intuitiva para dividir cuentas de restaurantes y calcular porcentajes exactos de propina.
 * **Características Clave:** Entrada dinámica del total de la cuenta, selección de porcentaje de propina y división equitativa entre varias personas.
 * **Tecnologías y Conceptos:** Uso de `Form`, formateo de entradas de texto (`TextField`) y lógica aritmética nativa en Swift.
